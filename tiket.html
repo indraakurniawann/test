@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Pemesanan TIket</title>
+    <link rel="stylesheet" href="assets/css/style_form_tiket.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <form id="form">
+    <P>Lengkapi Data Untuk pesan Tiket :</PO>
+    <div class="form-group">
+        <label for="Nama">Nama</label>
+        <input type="text" name="nama" id="nama">
+    </div>
+    <div class="form-group">
+        <label for="Jenis_Kelamin">Jenis Kelamin</label>
+        <input type="radio" name="Jenis_Kelamin" id="laki_laki" value="Laki_Laki"> Laki - Laki
+        <input type="radio" name="Jenis_Kelamin" id="perempuan" value="Perempuan"> Perempuan
+    </div>
+    <div class="form-group">
+        <label for="no_telepon">Nomor Telepon</label>
+        <input type="number" name="no_telepon" id="no_telepon">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="tgl_booking">Tanggal Booking</label>
+        <input type="date" name="tgl_booking" id="tgl_booking">
+    </div>
+    <div class="form-group">
+        <label for="jam_booking">Jam Booking</label>
+        <input type="time" name="jam_booking" id="jam_booking">
+    </div>
+    <div class="form-group">
+        <label for="kategori_jenis">Kategori - Jenis</label>
+        <select name="kategori_jenis" id="kategori_jenis">
+            <option value="domestik_dewasa">Domestik - Dewasa</option>
+            <option value="domestik_anak">Domestik - Anak-Anak</option>
+            <option value="mancanegara_dewasa">Mancanegara - Dewasa</option>
+            <option value="mancanegara_anak">Mancanegara - Anak-Anak</option>
+            <option value="paket_kelompok">Paket Kelompok</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="harga">Harga</label>
+        <input type="text" name="harga" id="harga" readonly>
+    </div>
+    <div class="form-group">
+        <label for="qty">Jumlah Tiket</label>
+        <input type="number" name="qty" id="qty">
+    </div>
+    <div class="form-group">
+        <label for="Total">Total Harga</label>
+        <input type="text" name="total_harga" id="total_harga">
+    </div>
+
+    <a id="submit-btn">Pesan Sekarang</a>
+    <a id="cancel-btn">Batal</a>
+
+    </form>
+
+    <div style="display: none;" id="terimakasih">
+        <h1>Terimakasih<p id="nama_pemesan"></p>Sudah Memesan Tiket...</h1>
+    </div>
+
+<script>
+
+    $("#submit-btn").click(function(event){
+            var nama = $('#nama').val();
+
+            if (nama === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Nama Tidak Boleh Kosong',
+                    text: 'Silakan masukkan nama Anda untuk melanjutkan pemesanan.'
+                });
+            } else {
+                $('#form').fadeOut(300);
+                $('#nama_pemesan').text(nama);
+                $('#terimakasih').fadeIn();
+            }
+        });
+
+    $("#kategori_jenis").change(function(){
+        var kategori_jenis= $('#kategori_jenis').val();
+
+        if (kategori_jenis== 'domestik_dewasa') {
+            $('#harga').val('150.000')
+        }else if (kategori_jenis== 'domestik_anak') {
+            $('#harga').val('75.000')
+        }else if (kategori_jenis== 'mancanegara_dewasa') {
+            $('#harga').val('300.000')
+        }else if (kategori_jenis== 'mancanegara_anak') {
+            $('#harga').val('150.000')
+        }else if (kategori_jenis== 'paket_kelompok') {
+            $('#harga').val('500.000')
+        }else{
+            $( '#harga' ).val( '500.000' )
+        }
+    });
+
+    $("#qty").keyup(function(){
+        var harga = $('#harga').val();
+        var qty = $('#qty').val()
+        var total_harga = harga.replace('.','')*qty
+        total_harga_format = total_harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        $('#total_harga').val(total_harga_format);
+    });
+</script>
+
+</body>
+</html>
