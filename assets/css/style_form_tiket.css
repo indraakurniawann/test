@@ -1,0 +1,142 @@
+/* Reset Margin and Padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic Styling for Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f7;
+    padding: 20px;
+}
+
+/* Styling Form Container */
+form {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling Form Heading */
+form p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Input and Select Styling */
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="time"], select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus, select:focus {
+    border-color: #007BFF;
+}
+
+/* Radio Button Styling */
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Button Styling */
+a {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px 25px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+a:active {
+    background-color: #004085;
+}
+
+/* Cancel Button */
+#cancel-btn {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+#cancel-btn:hover {
+    background-color: #c82333;
+}
+
+/* Thank You Message */
+#terimakasih {
+    background-color: #FF6600;
+    color: #fff;
+    padding: 180px ; 
+    text-align: center;
+    display: none;
+    align-items: center;
+    margin: 20px; 
+}
+
+#terimakasih h1 {
+    font-size: 30px;
+    margin-bottom: 50px; 
+    line-height: 1.4;
+}
+
+#terimakasih p {
+    font-size: 80px;
+    margin-top: 5px; 
+    line-height: 1.4; 
+}
+
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="time"], select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    a {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
